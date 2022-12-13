@@ -34,7 +34,7 @@ export const todoSlice = createSlice({
     sortTodos: (state, action: PayloadAction<boolean>) => {
       state.filterDescending = action.payload;
       state.todos.sort(
-        (a, b) => (action.payload ? 1 : -1) * a.text.localeCompare(b.text)
+        (a, b) => (action.payload ? 1 : -1) * a.text.localeCompare(b.text,'sv')
       );
     },
   },
