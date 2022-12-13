@@ -3,10 +3,8 @@ import reducer, {
   removeTodo,
   sortTodos,
 } from "../features/todoSlicer";
-import { v4 as uuidv4 } from "uuid"
-jest.mock('uuid', () => ({ v4: () => 'b2d04b1e-dcfc-4a5b-a1a8-cf49eb497cf3' }));
 
-
+jest.mock("uuid", () => ({ v4: () => "b2d04b1e-dcfc-4a5b-a1a8-cf49eb497cf3" }));
 
 describe("todoSlice", () => {
   it("should return the initial state", () => {
@@ -16,9 +14,8 @@ describe("todoSlice", () => {
     });
   });
 
-// Test of addTodo
+  // Test of addTodo
   it("should add todo in todos by addTodo action", () => {
-    
     const previousState = { todos: [], filterDescending: false };
     expect(reducer(previousState, addTodo("apelsin"))).toStrictEqual({
       todos: [{ id: "b2d04b1e-dcfc-4a5b-a1a8-cf49eb497cf3", text: "apelsin" }],
@@ -27,7 +24,7 @@ describe("todoSlice", () => {
   });
 
   // Test of removeTodo
-  it("should add todo in todos by removeTodo action", () => {
+  it("should remove todo from todos by removeTodo action", () => {
     const previousState = {
       todos: [
         { id: "b2d04b1e-dcfc-4a5b-a1a8-cf49eb497cf3", text: "apelsin" },
@@ -50,7 +47,7 @@ describe("todoSlice", () => {
         { id: "b2d04b1e-dcfc-4a5b-a1a8-cf49eb497cf3", text: "apelsin" },
         { id: "ft6d04b1e-dcfc-4a5b-a1a8-cf49eb497cc4", text: "mango" },
         { id: "ct6d04b1e-dcfc-4a5b-a1a8-cf49eb497cl6", text: "banan" },
-        {id: "ct6d04b1e-dcfc-4a5b-a1a8-cf49eb497cl6", text: "äpple" }
+        { id: "ct6d04b1e-dcfc-4a5b-a1a8-cf49eb497cl6", text: "äpple" },
       ],
       filterDescending: false,
     };
@@ -59,12 +56,12 @@ describe("todoSlice", () => {
         { id: "b2d04b1e-dcfc-4a5b-a1a8-cf49eb497cf3", text: "apelsin" },
         { id: "ct6d04b1e-dcfc-4a5b-a1a8-cf49eb497cl6", text: "banan" },
         { id: "ft6d04b1e-dcfc-4a5b-a1a8-cf49eb497cc4", text: "mango" },
-        {id: "ct6d04b1e-dcfc-4a5b-a1a8-cf49eb497cl6", text: "äpple" }
+        { id: "ct6d04b1e-dcfc-4a5b-a1a8-cf49eb497cl6", text: "äpple" },
       ],
       filterDescending: true,
     });
   });
- 
+
   // Test of sortTodos in descending order
   it("should change filterDescending value to false and sort todos in descending order", () => {
     const previousState = {
@@ -72,14 +69,16 @@ describe("todoSlice", () => {
         { id: "b2d04b1e-dcfc-4a5b-a1a8-cf49eb497cf3", text: "apelsin" },
         { id: "ct6d04b1e-dcfc-4a5b-a1a8-cf49eb497cl6", text: "banan" },
         { id: "ft6d04b1e-dcfc-4a5b-a1a8-cf49eb497cc4", text: "mango" },
+        { id: "ct6d04b1e-dcfc-4a5b-a1a8-cf49eb497cl6", text: "äpple" },
       ],
       filterDescending: true,
     };
     expect(reducer(previousState, sortTodos(false))).toEqual({
       todos: [
+        { id: "ct6d04b1e-dcfc-4a5b-a1a8-cf49eb497cl6", text: "äpple" },
         { id: "ft6d04b1e-dcfc-4a5b-a1a8-cf49eb497cc4", text: "mango" },
         { id: "ct6d04b1e-dcfc-4a5b-a1a8-cf49eb497cl6", text: "banan" },
-        { id: "b2d04b1e-dcfc-4a5b-a1a8-cf49eb497cf3", text: "apelsin" },
+        { id: "b2d04b1e-dcfc-4a5b-a1a8-cf49eb497cf3", text: "apelsin" }
       ],
       filterDescending: false,
     });

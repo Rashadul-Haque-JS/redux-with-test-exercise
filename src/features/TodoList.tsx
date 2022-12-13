@@ -30,8 +30,9 @@ const TodoList = () => {
         justifyContent: "center",
         alignItems: "center",
         height: "100vh",
-        border:'solid 4px #ff781f',
-        color:'#fff'
+        border: "solid 4px #ff781f",
+        color: "#fff"
+        
       }}
     >
       <div
@@ -40,7 +41,7 @@ const TodoList = () => {
           boxShadow: "0px 10px 15px -3px rgba(0,0,0,0.1)",
           background: "#ff781f",
           minHeight: "500px",
-          borderRadius: "8px",
+          borderRadius: "8px"
         }}
       >
         <form
@@ -99,9 +100,8 @@ const TodoList = () => {
                   paddingLeft: "4px",
                   textTransform: "capitalize",
                   fontWeight: "500",
-                  textAlign:'center',
-                  color:"#000"
-                 
+                  textAlign: "center",
+                  color: "#000",
                 }}
               >
                 {todo.text}{" "}
@@ -122,7 +122,7 @@ const TodoList = () => {
             ))}
           </ul>
         ) : (
-          <p style={{textAlign:'center'}}>Du har inga todos</p>
+          <p style={{ textAlign: "center" }}>Du har inga todos</p>
         )}
       </div>
     </div>

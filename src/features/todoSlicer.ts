@@ -23,7 +23,7 @@ export const todoSlice = createSlice({
   reducers: {
     addTodo: (state, action: PayloadAction<string>) => {
       const newTodo = { id: uuidv4(), text: action.payload };
-      state.todos.push(newTodo);
+     state.todos = [...state.todos,newTodo]
     },
 
     removeTodo: (state, action: PayloadAction<string>) => {
@@ -33,7 +33,7 @@ export const todoSlice = createSlice({
     sortTodos: (state, action: PayloadAction<boolean>) => {
       state.filterDescending = action.payload;
       state.todos.sort(
-        (a, b) => (action.payload ? 1 : -1) * a.text.localeCompare(b.text,'sv')
+        (a, b) => (action.payload ? 1 : -1) * a.text.localeCompare(b.text, "sv")
       );
     },
   },
