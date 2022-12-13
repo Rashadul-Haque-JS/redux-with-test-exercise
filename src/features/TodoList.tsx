@@ -99,7 +99,8 @@ const TodoList = () => {
                   paddingLeft: "4px",
                   textTransform: "capitalize",
                   fontWeight: "500",
-                  textAlign:'center'
+                  textAlign:'center',
+                  color:"#000"
                  
                 }}
               >
