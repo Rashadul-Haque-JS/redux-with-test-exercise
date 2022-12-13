@@ -22,6 +22,7 @@ export const todoSlice = createSlice({
 
   reducers: {
     addTodo: (state, action: PayloadAction<string>) => {
+      // const newTodo = { id: "b2d04b1e-dcfc-4a5b-a1a8-cf49eb497cf3", text: action.payload }; /* TESTING PURPOSE*/
       const newTodo = { id: uuidv4(), text: action.payload };
       state.todos.push(newTodo);
     },
